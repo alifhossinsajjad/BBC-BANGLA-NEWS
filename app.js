@@ -20,10 +20,20 @@ const loadCategory = () => {
 const showCatrgory = (categories) =>{
     categories.forEach(cat => {
             categoryContainer.innerHTML +=`
-            <li id="${cat.id}" class="hover:border-b-5 border-red-700 cursor-pointer">${cat.title}</li>
+            <li id="${cat.id}" class="hover:border-b-5 border-red-500 cursor-pointer">${cat.title}</li>
             
             `
         });
+
+        categoryContainer.addEventListener("click", (e) => {
+            const allli = document.querySelectorAll('li');
+            allli.forEach(li => {
+                li.classList.remove("border-b-5")
+            })
+            if(e.target.localName === 'li'){
+                e.target.classList.add("border-b-5")
+            }
+        })
 }
 
 
